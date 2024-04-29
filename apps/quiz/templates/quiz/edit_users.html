@@ -1,0 +1,57 @@
+{% extends "quiz/base.html" %}
+{% block title %}편집 화면{% endblock %}
+{% block content %}
+<h2>편집 화면</h2>
+<div class="edit">
+    <form 
+        action="{{url_for('quiz.edit_user', user_id=user.id)}}"
+        method="POST"
+        novalidate="novalidate">
+        {{ form.csrf_token }}
+        <p>
+            {{ form.username.label }}
+            {{ form.username(placeholder="닉네임", value=user.username) }}
+        </p>
+        {% for error in form.username.errors %}
+        <span style="color: red;">{{ error }}</span>
+        {% endfor %}
+        <p>
+            {{ form.password.label }}
+            {{ form.password(placeholder="비밀번호") }}
+        </p>
+        {% for error in form.password.errors %}
+        <span style="color: red;">{{ error }}</span>
+        {% endfor %}
+        <p>
+            {{ form.textword.label }} 
+            {{ form.textword(placeholder="문제 입력", value=user.textword)}}
+        </p>
+        {% for error in form.textword.errors %}
+        <span style="color: red;">{{ error }}</span>
+        {% endfor %}
+        <p>
+            {{ form.answer.label }} 
+            {{ form.answer(placeholder="정답 입력")}}
+        </p>
+        {% for error in form.answer.errors %}
+        <span style="color: red;">{{ error }}</span>
+        {% endfor %}
+    </form>
+</div>
+<div id="editbtn">
+    <form action="{{ url_for('quiz.edit_user', user_id=user.id)}}" method="POST">
+        {{ form.csrf_token}}
+        <input type="submit" value="편집">
+    </form>
+
+    <form action="{{ url_for('quiz.delete_user', user_id=user.id)}}" method="POST">
+        {{ form.csrf_token}}
+        <input type="submit" value="삭제">
+    </form>
+</div>
+<div id="backbtn">
+    <a href="{{ url_for('quiz.users')}}" id="backbtn" >목록</a>
+</div>
+
+
+{% endblock%}

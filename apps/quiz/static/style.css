@@ -1,0 +1,54 @@
+@font-face {
+    font-family: 'TTLaundryGothicB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2403-2@1.0/TTLaundryGothicB.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+*{
+    font-family: 'TTLaundryGothicB';
+    box-sizing: border-box;
+}
+
+html{
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    /* background-color: teal; */
+}
+
+h2 {
+    text-align: center;
+}
+
+.new{
+    text-align: center;
+}
+
+
+.indexdiv, .edit, .startdiv, .newform {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid black;
+    width: 500px;
+    margin: auto;
+    padding: 5px;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+#editbtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    padding: 10px;
+    margin: auto;
+}
+#backbtn {
+    text-align: center;
+    padding: 20px;
+}
+#ans {
+    cursor: pointer;
+}

@@ -1,0 +1,38 @@
+{% extends "quiz/base.html" %}
+{% block title %}신규 퀴즈 작성{% endblock %}
+{% block content %}
+    <h2>새로운 퀴즈 작성</h2>
+    <div class="newform">
+        <form 
+            action="{{ url_for('quiz.create_user')}}"
+            method="POST"
+            novalidate="novalidate">
+            {{ form.csrf_token }}
+            <p>
+                {{ form.username.label }} {{ form.username(placeholder="닉네임") }}
+            </p>
+            {% for error in form.username.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+            <p>
+                {{ form.password.label }} {{ form.password(placeholder="비밀번호") }}
+            </p>
+            {% for error in form.password.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+            <p>
+                {{ form.textword.label }} {{ form.textword}}
+            </p>
+            {% for error in form.textword.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+            <p>
+                {{ form.answer.label }} {{ form.answer}}
+            </p>
+            {% for error in form.answer.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+            <p>{{ form.submit() }}</p>
+        </form>
+    </div>
+{% endblock%}

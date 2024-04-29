@@ -1,0 +1,19 @@
+{% extends "quiz/base.html" %}
+{% block title %}문제{% endblock %}
+{% block content %}
+<h2>{{user.username}}의 문제</h2>
+<div class="startdiv">
+    <p>{{user.textword}}</p>
+    <p id="ans">정답은?</p>
+</div>
+<div id="backbtn">
+  <a href="{{ url_for('quiz.users')}}" >목록</a>
+</div>
+
+
+<script>
+    document.getElementById("ans").addEventListener("click", function() {
+      this.innerHTML = "{{user.answer}}"
+    })
+    </script>
+{% endblock %}
