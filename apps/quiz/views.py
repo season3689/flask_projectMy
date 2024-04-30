@@ -4,6 +4,7 @@ from apps.quiz.models import User
 from flask import Blueprint, render_template, redirect, url_for
 
 
+
 quiz = Blueprint(
     "quiz",
     __name__,
@@ -26,7 +27,7 @@ def create_user() :
             username=form.username.data,
             password=form.password.data,
             textword=form.textword.data,
-            answer=form.answer.data
+            answer=form.answer.data,
         )
 
         db.session.add(user)

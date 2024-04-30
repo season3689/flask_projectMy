@@ -16,7 +16,6 @@ login_manager.login_view = "auth.signup"
 login_manager.login_message = ""
 
 app = Flask(__name__)
-
 def create_app():
 
 
@@ -26,7 +25,7 @@ def create_app():
         f"sqlite:///{Path(__file__).parent.parent / 'local.sqlite'}",
         SQLALCHEMY_TRACK_MODIFICATIONS=False,
         SQLALCHEMY_ECHO=True,
-        WTF_CSRF_SECRET_KEY="3asdfg3asdfg3asdfg"
+        WTF_CSRF_SECRET_KEY="3asdfg3asdfg3asdfg",
     )
     
 
